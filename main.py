@@ -72,8 +72,3 @@ with st.form("form 1",clear_on_submit=True):
 # from pymongo import MongoClient
 # client = MongoClient("mongodb+srv://Jaggusmk:4321@cluster0.bzwyzf9.mongodb.net/?retryWrites=true&w=majority",ssl=True)
 
-
-
-
-
-
