@@ -14,32 +14,7 @@ def add_bg_from_local(image_file):
         background-size: cover
     }}</style>""",unsafe_allow_html=True)
 add_bg_from_local('source/charcoal.png') 
-@st.cache()
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-@st.cache()
-def get_img_with_href(local_img_path, target_url,width):
-    img_format = os.path.splitext(local_img_path)[-1].replace('.', '')
-    bin_str = get_base64_of_bin_file(local_img_path)
-    html_code = f'<a href="{target_url}"><img align="left" src="data:image/{img_format};base64,{bin_str}" width="{width}"/></a>'
-    return html_code
-#@st.cache_resource() 
-def get_img_with_href_message(local_img_path, target_url,message):
-    img_format = os.path.splitext(local_img_path)[-1].replace('.', '')
-    bin_str = get_base64_of_bin_file(local_img_path)
-    html_code = f'''
-        <p><a href="{target_url}">
-            <img align="left" src="data:image/{img_format};base64,{bin_str}" width="25"/>
-        </a>{message}</p>'''
-    return html_code
-def get_img(local_img_path,message):
-    img_format = os.path.splitext(local_img_path)[-1].replace('.', '')
-    bin_str = get_base64_of_bin_file(local_img_path)
-    html_code = f'''
-            <p ><img align="left" src="data:image/{img_format};base64,{bin_str}" width="20"/>{message}</p>'''
-    return html_code 
+
 with open("css/style.css") as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 st.write("Please wait data loading!")
