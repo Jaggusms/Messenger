@@ -14,12 +14,12 @@ def add_bg_from_local(image_file):
         background-size: cover
     }}</style>""",unsafe_allow_html=True)
 add_bg_from_local('source/charcoal.png') 
-@st.cache_resource()
+@st.cache()
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
     return base64.b64encode(data).decode()
-@st.cache_resource()
+@st.cache()
 def get_img_with_href(local_img_path, target_url,width):
     img_format = os.path.splitext(local_img_path)[-1].replace('.', '')
     bin_str = get_base64_of_bin_file(local_img_path)
